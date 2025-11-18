@@ -114,7 +114,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:5000/api/leave/employee",
+        "/api/leave/employee",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -157,7 +157,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/leave/apply",
+        "/api/leave/apply",
         formData,
         {
           headers: {
@@ -225,11 +225,11 @@ const Leaves = () => {
           placeholder="Search By Status"
           value={searchStatus}
           onChange={(e) => setSearchStatus(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+          className="mt-1 block w-64 border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
         />
         <button
           onClick={() => setShowModal(true)}
-          className="bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-colors h-[42px]"
+          className="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
         >
           Add Leave
         </button>
@@ -280,7 +280,7 @@ const Leaves = () => {
                   value={formData.leaveType}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                 >
                   <option value="">Select Leave Type</option>
                   <option value="Sick Leave">Sick Leave</option>
@@ -306,7 +306,7 @@ const Leaves = () => {
                   value={formData.startDate}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                 />
               </div>
 
@@ -325,7 +325,7 @@ const Leaves = () => {
                   value={formData.endDate}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                 />
               </div>
 
@@ -344,7 +344,7 @@ const Leaves = () => {
                   onChange={handleChange}
                   required
                   rows="3"
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter reason for leave"
                 />
               </div>
@@ -354,10 +354,10 @@ const Leaves = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className={`w-full bg-teal-600 text-white py-3 rounded-xl font-semibold transition-colors ${
+                  className={`w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg ${
                     submitting
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:bg-teal-700"
+                      ? "opacity-50 cursor-not-allowed transform-none"
+                      : ""
                   }`}
                 >
                   {submitting ? "Submitting..." : "Submit Application"}

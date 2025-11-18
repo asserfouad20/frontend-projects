@@ -48,7 +48,7 @@ const Settings = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        "http://localhost:5000/api/employee/change-password",
+        "/api/employee/change-password",
         {
           currentPassword: formData.currentPassword,
           newPassword: formData.newPassword,
@@ -134,7 +134,7 @@ const Settings = () => {
               value={formData.currentPassword}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+              className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
               placeholder="Enter current password"
             />
           </div>
@@ -154,7 +154,7 @@ const Settings = () => {
               value={formData.newPassword}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+              className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
               placeholder="Enter new password (min. 6 characters)"
             />
           </div>
@@ -174,7 +174,7 @@ const Settings = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+              className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
               placeholder="Confirm new password"
             />
           </div>
@@ -184,10 +184,10 @@ const Settings = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full bg-teal-600 text-white py-3 rounded-lg font-semibold transition-colors ${
+              className={`w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg ${
                 loading
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-teal-700"
+                  ? "opacity-50 cursor-not-allowed transform-none"
+                  : ""
               }`}
             >
               {loading ? "Changing Password..." : "Change Password"}

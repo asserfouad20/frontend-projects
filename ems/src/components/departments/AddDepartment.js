@@ -18,7 +18,7 @@ const AddDepartment = () => {
     e.preventDefault(); // ← actually call it
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/department/add",
+        "/api/department/add",
         department,
         {
           headers: {
@@ -57,11 +57,7 @@ const AddDepartment = () => {
             placeholder="Enter Dept Name"
             value={department.dep_name}
             onChange={handleChange}
-            className="
-              mt-1 w-full p-2 border border-gray-300 rounded-2xl
-              transition-shadow duration-200 ease-in-out
-              focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-teal-600
-            "
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
 
@@ -80,22 +76,14 @@ const AddDepartment = () => {
             placeholder="Description"
             value={department.description}
             onChange={handleChange}
-            className="
-              mt-1 w-full p-2 border border-gray-300 rounded-lg
-              transition-shadow duration-200 ease-in-out
-              focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-teal-600
-            "
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="
-            w-full mt-6 bg-teal-600 text-white font-bold py-2 px-4 rounded-2xl
-            transition-colors duration-200 ease-in-out hover:bg-teal-800
-            focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2
-          "
+          className="w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
         >
           Add Department
         </button>

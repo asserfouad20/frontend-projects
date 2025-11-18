@@ -135,7 +135,7 @@ const AdminLeaves = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/leave", {
+      const response = await axios.get("/api/leave", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -172,7 +172,7 @@ const AdminLeaves = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        `http://localhost:5000/api/leave/${leaveId}`,
+        `/api/leave/${leaveId}`,
         { status },
         {
           headers: {
@@ -231,7 +231,7 @@ const AdminLeaves = () => {
           placeholder="Search by employee, leave type, or status"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg w-96 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+          className="mt-1 block w-96 border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
         />
       </div>
 

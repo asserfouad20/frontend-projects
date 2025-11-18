@@ -85,7 +85,7 @@ const AdminSettings = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        "http://localhost:5000/api/auth/change-password",
+        "/api/auth/change-password",
         {
           currentPassword: passwordData.currentPassword,
           newPassword: passwordData.newPassword,
@@ -271,7 +271,7 @@ const AdminSettings = () => {
                   value={passwordData.currentPassword}
                   onChange={handlePasswordChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter current password"
                 />
               </div>
@@ -290,7 +290,7 @@ const AdminSettings = () => {
                   value={passwordData.newPassword}
                   onChange={handlePasswordChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter new password (min. 6 characters)"
                 />
               </div>
@@ -309,7 +309,7 @@ const AdminSettings = () => {
                   value={passwordData.confirmPassword}
                   onChange={handlePasswordChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Confirm new password"
                 />
               </div>
@@ -318,10 +318,10 @@ const AdminSettings = () => {
                 <button
                   type="submit"
                   disabled={passwordLoading}
-                  className={`w-full bg-teal-600 text-white py-3 rounded-lg font-semibold transition-colors ${
+                  className={`w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg ${
                     passwordLoading
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:bg-teal-700"
+                      ? "opacity-50 cursor-not-allowed transform-none"
+                      : ""
                   }`}
                 >
                   {passwordLoading ? "Changing Password..." : "Change Password"}
@@ -352,7 +352,7 @@ const AdminSettings = () => {
               {!isEditingCompany && companySaved && (
                 <button
                   onClick={() => setIsEditingCompany(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+                  className="flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
                 >
                   <FaEdit />
                   Edit
@@ -425,7 +425,7 @@ const AdminSettings = () => {
                   value={companyData.companyName}
                   onChange={handleCompanyChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter company name"
                 />
               </div>
@@ -444,7 +444,7 @@ const AdminSettings = () => {
                   onChange={handleCompanyChange}
                   required
                   rows="3"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter company address"
                 />
               </div>
@@ -463,7 +463,7 @@ const AdminSettings = () => {
                   value={companyData.phone}
                   onChange={handleCompanyChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter phone number"
                 />
               </div>
@@ -482,7 +482,7 @@ const AdminSettings = () => {
                   value={companyData.email}
                   onChange={handleCompanyChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="Enter email address"
                 />
               </div>
@@ -500,7 +500,7 @@ const AdminSettings = () => {
                   name="website"
                   value={companyData.website}
                   onChange={handleCompanyChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
                   placeholder="https://example.com"
                 />
               </div>
@@ -509,10 +509,10 @@ const AdminSettings = () => {
                 <button
                   type="submit"
                   disabled={companyLoading}
-                  className={`flex-1 bg-teal-600 text-white py-3 rounded-lg font-semibold transition-colors ${
+                  className={`flex-1 bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg ${
                     companyLoading
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:bg-teal-700"
+                      ? "opacity-50 cursor-not-allowed transform-none"
+                      : ""
                   }`}
                 >
                   {companyLoading ? "Saving..." : "Save Company Information"}
@@ -540,7 +540,7 @@ const AdminSettings = () => {
               {!isEditingLeaveTypes && leaveTypesSaved && (
                 <button
                   onClick={() => setIsEditingLeaveTypes(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+                  className="flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
                 >
                   <FaEdit />
                   Edit
@@ -625,7 +625,7 @@ const AdminSettings = () => {
                           handleLeaveTypeChange(index, "type", e.target.value)
                         }
                         disabled={!leave.enabled}
-                        className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 disabled:bg-gray-100 disabled:text-gray-500"
+                        className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400 disabled:bg-gray-100 disabled:text-gray-500 disabled:hover:border-gray-300"
                       />
                     </div>
 
@@ -645,7 +645,7 @@ const AdminSettings = () => {
                         }
                         disabled={!leave.enabled}
                         min="1"
-                        className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 disabled:bg-gray-100 disabled:text-gray-500"
+                        className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400 disabled:bg-gray-100 disabled:text-gray-500 disabled:hover:border-gray-300"
                       />
                     </div>
                   </div>
@@ -655,7 +655,7 @@ const AdminSettings = () => {
               <div className="pt-4 flex gap-4">
                 <button
                   type="submit"
-                  className="flex-1 bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+                  className="flex-1 bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
                 >
                   Save Leave Configuration
                 </button>

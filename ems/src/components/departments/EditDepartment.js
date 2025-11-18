@@ -18,7 +18,7 @@ const EditDepartment = () => {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/department/${id}`,
+          `/api/department/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -53,7 +53,7 @@ const EditDepartment = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/department/${id}`,
+        `/api/department/${id}`,
         department,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -88,7 +88,7 @@ const EditDepartment = () => {
             type="text"
             value={department.dep_name}
             onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
         <div>
@@ -101,12 +101,12 @@ const EditDepartment = () => {
             rows={4}
             value={department.description}
             onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-teal-600 text-white py-2 rounded-xl hover:bg-teal-700 transition-all duration-200 ease-in-out"
+          className="w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
         >
           Update
         </button>

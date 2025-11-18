@@ -33,7 +33,7 @@ export default function EditEmployee() {
     const fetchEmployee = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/employee/${id}`,
+          `/api/employee/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -123,7 +123,7 @@ export default function EditEmployee() {
             value={employee.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
 
@@ -136,7 +136,7 @@ export default function EditEmployee() {
             name="maritalStatus"
             value={employee.maritalStatus}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           >
             <option value="">Select Status</option>
             <option>Single</option>
@@ -156,7 +156,7 @@ export default function EditEmployee() {
             placeholder="Designation"
             value={employee.designation}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
 
@@ -172,7 +172,7 @@ export default function EditEmployee() {
             placeholder="Salary In USD"
             value={employee.salary}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           />
         </div>
         {/* Department */}
@@ -185,7 +185,7 @@ export default function EditEmployee() {
             name="department"
             value={employee.department?._id || ""}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
           >
             <option value="">Select Department</option>
             {departments.map((dep) => (
@@ -207,7 +207,7 @@ export default function EditEmployee() {
           <button
             type="submit"
             disabled={submitting}
-            className="bg-teal-600 text-white py-3 px-8 rounded-xl hover:bg-teal-700 transition-colors duration-200 disabled:opacity-50"
+            className="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg disabled:opacity-50 disabled:transform-none"
           >
             {submitting ? "Updating…" : "Update Employee"}
           </button>
