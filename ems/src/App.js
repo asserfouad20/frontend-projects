@@ -21,6 +21,8 @@ import AddSalary from "./components/salary/AddSalary";
 import ViewSalary from "./components/salary/ViewSalary";
 import AdminLeaves from "./components/leave/AdminLeaves";
 import AdminSettings from "./components/settings/AdminSettings";
+import Attendance from "./components/attendance/Attendance";
+import AttendanceReport from "./components/attendance/AttendanceReport";
 
 // Employee Dashboard Components
 import EmployeeSummary from "./components/EmployeeDashboard/Summary";
@@ -57,6 +59,8 @@ export default function App() {
         <Route path="employees/salary/:id" element={<ViewSalary />} />
         <Route path="leave" element={<AdminLeaves />} />
         <Route path="settings" element={<AdminSettings />} />
+        <Route path="attendance" element={<Attendance />} />
+        <Route path="attendance-report" element={<AttendanceReport />} />
       </Route>
       <Route
         path="/employee-dashboard"

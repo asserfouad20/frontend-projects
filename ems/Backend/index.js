@@ -20,6 +20,7 @@ import connectToDatabase from "./db/db.js";
 import salaryRouter from "./routes/salary.js";
 import dashboardRouter from "./routes/dashboard.js";
 import leaveRouter from "./routes/leave.js";
+import attendanceRouter from "./routes/attendance.js";
 
 connectToDatabase();
 
@@ -37,6 +38,7 @@ app.use("/api/employee", employeeRoutes);
 app.use("/api/salary", salaryRouter);
 app.use("/api/dashboard", dashboardRouter);
 app.use("/api/leave", leaveRouter);
+app.use("/api/attendance", attendanceRouter);
 
 // Start server
 const PORT = process.env.PORT || 5000;

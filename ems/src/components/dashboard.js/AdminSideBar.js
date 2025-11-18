@@ -9,6 +9,8 @@ import {
   FaMoneyBill,
   FaCog,
   FaMoneyBillWave,
+  FaClipboardList,
+  FaChartBar,
 } from "react-icons/fa";
 
 const AdminSidebar = () => {
@@ -63,6 +65,22 @@ const AdminSidebar = () => {
         >
           <FaMoneyBillWave className="text-xl" />
           <span className="ml-4">Salary</span>
+        </NavLink>
+
+        <NavLink
+          to="/admin-dashboard/attendance"
+          className={`${linkClasses} hover:bg-teal-500`}
+        >
+          <FaClipboardList className="text-xl" />
+          <span className="ml-4">Attendance</span>
+        </NavLink>
+
+        <NavLink
+          to="/admin-dashboard/attendance-report"
+          className={`${linkClasses} hover:bg-teal-500`}
+        >
+          <FaChartBar className="text-xl" />
+          <span className="ml-4">Attendance Report</span>
         </NavLink>
 
         <NavLink
