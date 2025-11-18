@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Digital Agency</title>
+    <link rel="stylesheet" href="LANDING-PAGE.css" />
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: white;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #6e48aa 0%, #a448aa 100%);
+        color: white;
+        text-align: center;
+        padding: 30px 10% 20px;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        display: flex;
+        gap: 25px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        cursor: pointer;
+      }
+
+      .cta {
+        background: rgb(221, 80, 20);
+        padding: 8px 20px;
+        border-radius: 20px;
+        transition: 300ms;
+        cursor: pointer;
+      }
+
+      .cta:hover {
+        padding: 10px 25px;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-weight: 300;
+      }
+
+      .hero-tagline {
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      .hero-buttons {
+        gap: 25px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .primary-button {
+        transition: 300ms;
+        font-weight: bold;
+        color: #6e48aa;
+        border-radius: 30px;
+        border: 2px solid #6e48aa;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .primary-button:hover {
+        opacity: 30%;
+        padding: 15px;
+      }
+
+      .secondary-button {
+        transition: 300ms;
+        font-weight: bold;
+        color: #6e48aa;
+        border-radius: 30px;
+        border: 2px solid #6e48aa;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .secondary-button:hover {
+        opacity: 30%;
+        padding: 15px;
+      }
+
+      .corp-note {
+        text-align: center;
+        padding: 30px 0;
+        background: lightgray;
+      }
+
+      .corp-note-label {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .corp-note-text {
+        font-size: 1.2rem;
+      }
+
+      .divider-line {
+        width: 50px;
+        height: 3px;
+        background: rgb(221, 80, 20);
+        margin: 20px auto;
+      }
+
+      .business-highlights {
+        padding: 80px 5%;
+        background: white;
+      }
+
+      .highlight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .highlight-card {
+        background: white;
+        padding: 40px 30px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        transition: all 200ms;
+      }
+
+      .highlight-card:hover {
+        transform: translateY(-15px);
+      }
+
+      .highlight-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: purple;
+      }
+
+      .about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 500px;
+        background: lightgray;
+      }
+
+      .about-content {
+        padding: 80px 10%;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: lightgray;
+      }
+
+      .years-experience {
+        font-size: 4rem;
+        font-weight: bold;
+        color: rgb(221, 80, 20);
+        margin-bottom: 10px;
+      }
+
+      .about-text {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+
+      .read-more {
+        background: purple;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 300ms;
+      }
+
+      .read-more:hover {
+        transform: scale(1.05);
+      }
+
+      .about-image {
+        background: url("FARA7.jpg") center/cover;
+      }
+
+      .services {
+        padding: 80px 5%;
+        background: white;
+        text-align: center;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto;
+      }
+
+      .service-card {
+        padding: 40px 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+      }
+
+      .service-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #6e48aa;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 30px;
+        background: #333;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="hero">
+      <nav>
+        <div class="logo">AF</div>
+        <ul class="nav-links">
+          <li><a>Home</a></li>
+          <li><a>Services</a></li>
+          <li><a>Testimonials</a></li>
+          <li><a>Contact</a></li>
+          <li><a class="cta">Buy now</a></li>
+        </ul>
+      </nav>
+      <div class="hero-content">
+        <h1>We Are Creative</h1>
+        <h2>Creative Digital Agency</h2>
+        <p class="hero-tagline">
+          We blend innovation with strategy to transform your digital presence.
+          From sleek web design to data-driven marketing, we craft solutions
+          that grow your business—not just your bandwidth.
+        </p>
+        <div class="hero-buttons">
+          <button class="primary-button">Get Started</button>
+          <button class="secondary-button">Request a Quote</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="corp-note">
+      <div class="corp-note-content">
+        <p class="corp-note-label"><strong>CORP NOTE:</strong></p>
+        <p class="corp-note-text">
+          <strong
+            >Since 2010, our agency has been ISO 9001-certified, adhering to
+            global standards in digital innovation. Partnered with Fortune 500
+            brands, we merge creativity with compliance—delivering scalable
+            solutions that align with your corporate vision.</strong
+          >
+        </p>
+      </div>
+      <div class="divider-line"></div>
+    </section>
+
+    <section class="business-highlights">
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <h3>LAUNCH BUSINESS</h3>
+          <p>
+            From concept to market dominance—we specialize in turnkey startup
+            launches. Our 360° approach covers branding, MVP development, and
+            investor outreach, helping 200+ founders hit the ground running.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>ONLINE SUPPORT TEAM</h3>
+          <p>
+            Your customers never sleep, and neither do we. Our 24/7 multilingual
+            support teams (avg. response time: 90 seconds) turn frustrations
+            into loyalty—proven to increase retention by 40%.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>THE MANAGEMENT</h3>
+          <p>
+            We don’t just advise—we execute. Former Fortune 500 executives
+            provide hands-on leadership to optimize operations, culture, and
+            growth trajectories.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-content">
+        <h2 class="section-title">ABOUT US</h2>
+        <div class="years-experience">15 years</div>
+        <p class="about-text">
+          we are passionate about achieving better results for our clients
+        </p>
+        <p class="text">
+          We measure our success by yours. Through data-led strategies and
+          relentless optimization, we’ve delivered an average 137% ROI for
+          clients across the tech and finance sectors.
+        </p>
+        <a><button class="read-more">Read more</button></a>
+      </div>
+      <img src="FARA7.jpg" alt="" class="about-image" />
+    </section>
+
+    <section class="services">
+      <h2 class="section-title">OUR SERVICES</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 class="service-title">USER EXPERIENCE</h3>
+          <p class="service-description">
+            We craft intuitive digital journeys that boost engagement by 60%.
+            From wireframes to micro-interactions, every pixel is engineered for
+            conversions.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">CREATIVE DESIGN</h3>
+          <p class="service-description">
+            Award-winning visuals that tell your story. Our designs don’t just
+            look good—they drive brand recall and customer loyalty
+          </p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">RETINA READY</h3>
+          <p class="service-description">
+            Flawless display on every device. We optimize for 4K, OLED, and
+            beyond, ensuring your brand always looks razor-sharp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2024 Creative Digital Agency. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
