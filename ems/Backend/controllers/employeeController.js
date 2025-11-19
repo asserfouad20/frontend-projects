@@ -64,9 +64,19 @@ export const addEmployee = async (req, res) => {
     return res.status(201).json({ success: true, message: "Employee created" });
   } catch (err) {
     console.error("addEmployee error:", err);
+
+    // Handle specific MongoDB duplicate key errors
+    if (err.code === 11000) {
+      const field = Object.keys(err.keyPattern)[0];
+      return res.status(400).json({
+        success: false,
+        error: `${field} already exists. Please use a different ${field}.`
+      });
+    }
+
     return res
       .status(500)
-      .json({ success: false, error: "Server error in adding employee" });
+      .json({ success: false, error: err.message || "Server error in adding employee" });
   }
 };
 

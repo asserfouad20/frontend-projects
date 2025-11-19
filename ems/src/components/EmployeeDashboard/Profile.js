@@ -55,7 +55,7 @@ const Profile = () => {
             <img
               src={
                 employee.userId?.profileImage
-                  ? `/uploads/${employee.userId.profileImage}`
+                  ? `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${employee.userId.profileImage}`
                   : `https://ui-avatars.com/api/?name=${encodeURIComponent(
                       employee.userId?.name || "User"
                     )}&background=0D8ABC&color=fff&size=200`

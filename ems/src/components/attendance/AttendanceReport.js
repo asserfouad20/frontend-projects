@@ -33,7 +33,7 @@ const AttendanceReport = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/employee", {
+      const response = await axios.get("/api/employee", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -54,7 +54,7 @@ const AttendanceReport = () => {
       params.append("year", filters.year);
 
       const response = await axios.get(
-        `http://localhost:5000/api/attendance/report?${params.toString()}`,
+        `/api/attendance/report?${params.toString()}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -189,7 +189,7 @@ const AttendanceReport = () => {
               name="employeeId"
               value={filters.employeeId}
               onChange={handleFilterChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
             >
               <option value="">All Employees</option>
               {employees.map((emp) => (
@@ -208,7 +208,7 @@ const AttendanceReport = () => {
               name="month"
               value={filters.month}
               onChange={handleFilterChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
             >
               {months.map((month) => (
                 <option key={month.value} value={month.value}>
@@ -224,7 +224,7 @@ const AttendanceReport = () => {
               name="year"
               value={filters.year}
               onChange={handleFilterChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
             >
               {years.map((year) => (
                 <option key={year} value={year}>
@@ -237,7 +237,7 @@ const AttendanceReport = () => {
           <div className="flex items-end">
             <button
               onClick={fetchReport}
-              className="w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700"
+              className="w-full bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
             >
               Generate Report
             </button>

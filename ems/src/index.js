@@ -3,8 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { AuthProvider } from "./context/authContext";
-import axios from "axios";
-axios.defaults.baseURL = "http://localhost:5000";
+import "./utils/axios"; // Configure axios globally
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -75,8 +75,11 @@ export default function AddEmployee() {
           console.error(`${field}: ${message}`);
         });
         console.groupEnd();
+        alert("Validation errors - check console for details");
       } else {
         console.error("Add employee error:", err);
+        const errorMessage = err.response?.data?.error || err.response?.data?.message || "Failed to add employee. Please check if Employee ID already exists.";
+        alert(errorMessage);
       }
 
       const msg =
@@ -110,7 +113,7 @@ export default function AddEmployee() {
             value={form.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Email */}
@@ -125,7 +128,7 @@ export default function AddEmployee() {
             value={form.email}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Employee ID */}
@@ -140,7 +143,7 @@ export default function AddEmployee() {
             value={form.employeeId}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Date of Birth */}
@@ -154,7 +157,7 @@ export default function AddEmployee() {
             value={form.dob}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Gender */}
@@ -167,7 +170,7 @@ export default function AddEmployee() {
             value={form.gender}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           >
             <option value="">Select Gender</option>
             <option>Male</option>
@@ -183,7 +186,7 @@ export default function AddEmployee() {
             name="maritalStatus"
             value={form.maritalStatus}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           >
             <option value="">Select Status</option>
             <option>Single</option>
@@ -202,7 +205,7 @@ export default function AddEmployee() {
             placeholder="Designation"
             value={form.designation}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Department */}
@@ -214,7 +217,7 @@ export default function AddEmployee() {
             name="department"
             value={form.department}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           >
             <option value="">Select Department</option>
             {departments.map((dep) => (
@@ -235,7 +238,7 @@ export default function AddEmployee() {
             placeholder="Salary In USD"
             value={form.salary}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Role */}
@@ -248,7 +251,7 @@ export default function AddEmployee() {
             value={form.role}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           >
             <option value="">Select Role</option>
             <option value="admin">Admin</option>
@@ -269,7 +272,7 @@ export default function AddEmployee() {
             required
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"
             title="Must be at least 8 characters, and include uppercase, lowercase, number & special character"
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-shadow duration-200 ease-in-out"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Profile Image */}

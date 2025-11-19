@@ -123,7 +123,7 @@ export default function EditEmployee() {
             value={employee.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
 
@@ -136,7 +136,7 @@ export default function EditEmployee() {
             name="maritalStatus"
             value={employee.maritalStatus}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           >
             <option value="">Select Status</option>
             <option>Single</option>
@@ -156,7 +156,7 @@ export default function EditEmployee() {
             placeholder="Designation"
             value={employee.designation}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
 
@@ -172,7 +172,7 @@ export default function EditEmployee() {
             placeholder="Salary In USD"
             value={employee.salary}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
         </div>
         {/* Department */}
@@ -185,7 +185,7 @@ export default function EditEmployee() {
             name="department"
             value={employee.department?._id || ""}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+            className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           >
             <option value="">Select Department</option>
             {departments.map((dep) => (

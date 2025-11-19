@@ -56,7 +56,7 @@ const Attendance = () => {
 
   const fetchAttendance = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/attendance", {
+      const response = await axios.get("/api/attendance", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -78,7 +78,7 @@ const Attendance = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/employee", {
+      const response = await axios.get("/api/employee", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -100,7 +100,7 @@ const Attendance = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/attendance/mark",
+        "/api/attendance/mark",
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -140,7 +140,7 @@ const Attendance = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/attendance/${id}`,
+        `/api/attendance/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -228,7 +228,7 @@ const Attendance = () => {
       cell: (row) => (
         <button
           onClick={() => handleDelete(row._id)}
-          className="bg-red-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-red-700"
+          className="bg-red-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-red-700 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
         >
           Delete
         </button>
@@ -261,12 +261,12 @@ const Attendance = () => {
             placeholder="Search by name, ID, or status..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="border border-gray-300 rounded-lg px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="border border-gray-300 rounded-lg px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
           />
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 h-[42px]"
+            className="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 h-[42px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
           >
             Mark Attendance
           </button>

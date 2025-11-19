@@ -271,7 +271,7 @@ const AdminSettings = () => {
                   value={passwordData.currentPassword}
                   onChange={handlePasswordChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Enter current password"
                 />
               </div>
@@ -290,7 +290,7 @@ const AdminSettings = () => {
                   value={passwordData.newPassword}
                   onChange={handlePasswordChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Enter new password (min. 6 characters)"
                 />
               </div>
@@ -309,7 +309,7 @@ const AdminSettings = () => {
                   value={passwordData.confirmPassword}
                   onChange={handlePasswordChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Confirm new password"
                 />
               </div>
@@ -425,7 +425,7 @@ const AdminSettings = () => {
                   value={companyData.companyName}
                   onChange={handleCompanyChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Enter company name"
                 />
               </div>
@@ -444,7 +444,7 @@ const AdminSettings = () => {
                   onChange={handleCompanyChange}
                   required
                   rows="3"
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Enter company address"
                 />
               </div>
@@ -463,7 +463,7 @@ const AdminSettings = () => {
                   value={companyData.phone}
                   onChange={handleCompanyChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Enter phone number"
                 />
               </div>
@@ -482,7 +482,7 @@ const AdminSettings = () => {
                   value={companyData.email}
                   onChange={handleCompanyChange}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="Enter email address"
                 />
               </div>
@@ -500,7 +500,7 @@ const AdminSettings = () => {
                   name="website"
                   value={companyData.website}
                   onChange={handleCompanyChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400"
+                  className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out"
                   placeholder="https://example.com"
                 />
               </div>
@@ -625,7 +625,7 @@ const AdminSettings = () => {
                           handleLeaveTypeChange(index, "type", e.target.value)
                         }
                         disabled={!leave.enabled}
-                        className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400 disabled:bg-gray-100 disabled:text-gray-500 disabled:hover:border-gray-300"
+                        className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out disabled:bg-gray-100 disabled:text-gray-500"
                       />
                     </div>
 
@@ -645,7 +645,7 @@ const AdminSettings = () => {
                         }
                         disabled={!leave.enabled}
                         min="1"
-                        className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all duration-300 ease-in-out hover:border-teal-400 disabled:bg-gray-100 disabled:text-gray-500 disabled:hover:border-gray-300"
+                        className="mt-1 block w-full border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-300 ease-in-out disabled:bg-gray-100 disabled:text-gray-500"
                       />
                     </div>
                   </div>

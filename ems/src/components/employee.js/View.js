@@ -14,7 +14,7 @@ const View = () => {
     const fetchEmployee = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/employee/${id}`,
+          `/api/employee/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -72,7 +72,7 @@ const View = () => {
           {/* Profile Image */}
           <div className="flex justify-center items-center">
             <img
-              src={`http://localhost:5000/uploads/${employee.userId.profileImage}`}
+              src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${employee.userId.profileImage}`}
               alt={employee.userId.name}
               className="h-64 w-52 rounded-full object-cover"
             />
