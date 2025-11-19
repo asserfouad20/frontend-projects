@@ -22,7 +22,9 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(find . -name \"*.js\" -type f -exec powershell -Command \"(Get-Content ''{}'') -replace ''http://localhost:5000/api/'', ''/api/'' | Set-Content ''{}''\" ;)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []
