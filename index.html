@@ -22,7 +22,7 @@
     <meta name="twitter:image" content="path-to-your-preview-image.jpg" />
 
     <!-- Theme Color for Browser -->
-    <meta name="theme-color" content="#1a1a1a" />
+    <meta name="theme-color" content="#080808" />
 
     <!-- Preload Critical Resources -->
     <link
@@ -50,7 +50,7 @@
       name="description"
       content="AF's Portfolio - Front-End Developer and Multimedia Student"
     />
-    <title>AF Portfolio | Front-End Developer</title>
+    <title>AF Portfolio | Pearl Edition</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -61,10 +61,12 @@
     />
     <style>
       :root {
-        --primary: gold;
-        --secondary: #1a1a1a;
+        --white: #ffe7ff;
+        --bg: #080808;
+        --pearl-accent: rgba(255, 231, 255, 0.12);
+        --pearl-light: rgba(255, 255, 255, 0.3);
+        --pearl-glow: rgba(255, 255, 255, 0.8);
         --text: #e0e0e0;
-        --accent: rgba(255, 215, 0, 0.2);
       }
 
       * {
@@ -75,93 +77,145 @@
 
       body {
         font-family: "Roboto", sans-serif;
-        background: linear-gradient(135deg, var(--secondary), #0d0d0d);
+        background: #080808;
         color: var(--text);
         line-height: 1.6;
       }
 
+      /* Pearl-styled Header */
       header {
-        background: rgba(20, 20, 20, 0.95);
+        background: var(--bg);
         padding: 1.2rem 3rem;
         display: flex;
         justify-content: space-between;
-        /*Aligns the logo and nav items on opposite ends*/
         align-items: center;
         position: sticky;
-        /*Makes the header stick to the top of the viewport as the user scrolls*/
         top: 0;
-        /*Ensures the sticky element sticks at the very top*/
         z-index: 100;
-        /*Ensures the header stays on top of other content when it's sticky*/
-        border-bottom: 2px solid var(--primary);
-        backdrop-filter: blur(5px);
-        /*Adds a blur effect to the background of the header*/
+        border-radius: 0 0 50px 50px;
+        box-shadow: inset 0 0.2rem 0.6rem rgba(255, 255, 255, 0.3),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.5),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        left: -15%;
+        right: -15%;
+        bottom: 25%;
+        top: -100%;
+        border-radius: 50%;
+        background-color: var(--pearl-accent);
+        transition: all 0.3s ease;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 12%;
+        bottom: 40%;
+        border-radius: 18px 18px 0 0;
+        box-shadow: inset 0 8px 6px -8px var(--pearl-glow);
+        background: linear-gradient(
+          180deg,
+          var(--pearl-light) 0%,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      header:hover {
+        box-shadow: inset 0 0.2rem 0.4rem rgba(255, 255, 255, 0.4),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.7),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+      }
+
+      header:hover::before {
+        transform: translateY(-5%);
+      }
+
+      header:hover::after {
+        opacity: 0.4;
+        transform: translateY(5%);
       }
 
       .logo {
         font-family: "Orbitron", sans-serif;
         font-size: 2.5rem;
-        color: var(--primary);
-        text-shadow: 0 0 15px rgba(255, 255, 0, 0.5);
+        color: var(--white);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+          0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
         letter-spacing: 2px;
         transition: transform 0.3s;
+        position: relative;
+        z-index: 10;
       }
 
       .logo:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) translateY(-2%);
       }
 
       nav {
         display: flex;
         gap: 1.5rem;
+        position: relative;
+        z-index: 10;
       }
 
       nav a {
-        color: #ccc;
+        color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
         font-weight: bold;
         position: relative;
-        /*Allows the ::after pseudo-element to be positioned relative to this link*/
-        padding: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        mask-image: linear-gradient(to bottom, white 40%, transparent);
       }
 
-      nav a::after {
+      nav a::before {
         content: "";
         position: absolute;
-        /*Positions the underline relative to the nearest positioned ancestor (the 'nav a')*/
-        width: 0;
-        /*Starts the underline with zero width*/
-        height: 2px;
-        background: var(--primary);
-        bottom: 0;
-        /*Positions the underline at the bottom of the link*/
-        left: 0;
-        /*Positions the underline at the left of the link*/
-        transition: width 0.3s;
-        /*Creates a smooth animation for the width change on hover*/
+        inset: 0;
+        border-radius: 50px;
+        background: var(--pearl-accent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
-      nav a:hover::after,
-      nav a:focus::after {
-        width: 100%;
-        /*Expands the underline to full width on hover or focus*/
+      nav a:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      nav a:hover::before {
+        opacity: 1;
       }
 
       section {
         padding: 5rem 3rem;
         max-width: 1000px;
         margin: auto;
-        scroll-margin-top: 80px;
-        /*Ensures the section is not hidden behind the sticky header when scrolled to*/
+        scroll-margin-top: 120px;
       }
 
       .section-title {
         font-size: 2.5rem;
-        color: var(--primary);
+        color: var(--white);
         margin-bottom: 2rem;
         text-align: center;
         position: relative;
-        /*Allows the ::after pseudo-element to be positioned relative to this title*/
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+          0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
       }
 
       .section-title::after {
@@ -169,59 +223,183 @@
         display: block;
         width: 80px;
         height: 3px;
-        background: var(--primary);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--white),
+          transparent
+        );
         margin: 0.5rem auto 0;
+        box-shadow: 0 0 10px rgba(255, 231, 255, 0.5);
       }
 
-      .btn {
-        background-size: 0% 100%;
-        background-repeat: no-repeat;
-        background-position-x: left;
-        background-image: linear-gradient(to right, var(--primary), yellow);
-        display: inline-block;
-        padding: 0.7rem 1.4rem;
-        border: 2px solid var(--primary);
-        background-color: transparent;
-        color: white;
-        border-radius: 30px;
-        font-weight: bold;
-        transition: background-size 1s, background-color 0.3s, color 0.3s,
-          box-shadow 0.3s;
-        text-decoration: none;
-        margin: 0.5rem;
-        cursor: pointer;
-      }
-
-      .btn:hover,
-      .btn:focus {
-        background-size: 100% 100%;
-        color: #111;
-        transform: translateY(-2px);
-        /*Slightly lifts the button on hover*/
-        /* BOX-SHADOW ANATOMY:
-    0    → Horizontal offset (no left/right shadow)
-    5px  → Vertical offset (shadow appears below)
-    15px → Blur radius (how soft/fuzzy the shadow is)
-    rgba(255, 215, 0, 0.3) → Shadow color (gold with 30% opacity)
-
-    This creates a soft yellow glow beneath the button
-   */
-        box-shadow: 0 5px 15px gold opacity(30%);
-      }
-
+      /* Pearl-styled Cards */
       .card {
-        background: rgba(34, 34, 34, 0.8);
-        border: 1px solid #333;
-        border-radius: 12px;
+        background: var(--bg);
+        border-radius: 40px;
         padding: 2rem;
-        box-shadow: 0 0 10px var(--accent);
         margin: 1.5rem 0;
-        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 0.2rem 0.6rem rgba(255, 255, 255, 0.3),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.5),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        left: -15%;
+        right: -15%;
+        bottom: 25%;
+        top: -100%;
+        border-radius: 50%;
+        background-color: var(--pearl-accent);
+        transition: all 0.3s ease;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 12%;
+        bottom: 40%;
+        border-radius: 18px 18px 0 0;
+        box-shadow: inset 0 8px 6px -8px var(--pearl-glow);
+        background: linear-gradient(
+          180deg,
+          var(--pearl-light) 0%,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      .card > * {
+        position: relative;
+        z-index: 5;
       }
 
       .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px var(--accent);
+        box-shadow: inset 0 0.2rem 0.4rem rgba(255, 255, 255, 0.4),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.7),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+      }
+
+      .card:hover::before {
+        transform: translateY(-5%);
+      }
+
+      .card:hover::after {
+        opacity: 0.4;
+        transform: translateY(5%);
+      }
+
+      /* Pearl-styled Buttons */
+      .btn {
+        outline: none;
+        cursor: pointer;
+        border: 0;
+        position: relative;
+        border-radius: 100px;
+        background-color: var(--bg);
+        transition: all 0.2s ease;
+        box-shadow: inset 0 0.2rem 0.6rem rgba(255, 255, 255, 0.3),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.5),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+        display: inline-block;
+        text-decoration: none;
+        margin: 0.5rem;
+        overflow: hidden;
+      }
+
+      .btn .btn-wrap {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 14px 25px;
+        border-radius: inherit;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        transform: translateY(2%);
+        mask-image: linear-gradient(to bottom, white 40%, transparent);
+      }
+
+      .btn .btn-wrap::before {
+        content: "";
+        position: absolute;
+        left: -15%;
+        right: -15%;
+        bottom: 25%;
+        top: -100%;
+        border-radius: 50%;
+        background-color: var(--pearl-accent);
+        transition: all 0.3s ease;
+      }
+
+      .btn .btn-wrap::after {
+        content: "";
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 12%;
+        bottom: 40%;
+        border-radius: 18px 18px 0 0;
+        box-shadow: inset 0 8px 6px -8px var(--pearl-glow);
+        background: linear-gradient(
+          180deg,
+          var(--pearl-light) 0%,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      .btn .btn-wrap > * {
+        position: relative;
+        z-index: 5;
+      }
+
+      .btn:hover {
+        box-shadow: inset 0 0.2rem 0.4rem rgba(255, 255, 255, 0.4),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.7),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+      }
+
+      .btn:hover .btn-wrap {
+        color: white;
+        transform: translateY(-4%);
+      }
+
+      .btn:hover .btn-wrap::before {
+        transform: translateY(-5%);
+      }
+
+      .btn:hover .btn-wrap::after {
+        opacity: 0.4;
+        transform: translateY(5%);
+      }
+
+      .btn:active {
+        transform: translateY(3px);
+        box-shadow: inset 0 0.2rem 0.4rem rgba(255, 255, 255, 0.5),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
+          inset 0 -0.3rem 0.7rem rgba(255, 255, 255, 0.4),
+          0 2rem 2rem rgba(0, 0, 0, 0.3),
+          0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
       }
 
       .skills ul {
@@ -233,15 +411,21 @@
       }
 
       .skills li {
-        background: #333;
+        background: rgba(255, 255, 255, 0.05);
         margin: 0.5rem 0;
         padding: 1rem;
-        border-left: 4px solid var(--primary);
-        transition: transform 0.2s;
+        border-radius: 20px;
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
       }
 
       .skills li:hover {
         transform: translateX(5px);
+        background: rgba(255, 255, 255, 0.08);
+        border-left-color: rgba(255, 255, 255, 0.6);
+        box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2),
+          0 4px 12px rgba(0, 0, 0, 0.4);
       }
 
       .project-card {
@@ -249,9 +433,11 @@
       }
 
       .project-card h3 {
-        color: var(--primary);
+        color: var(--white);
         margin-bottom: 1rem;
         font-size: 1.5rem;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+          0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
       }
 
       .btn-group {
@@ -264,8 +450,46 @@
       footer {
         text-align: center;
         padding: 2rem;
-        background: rgba(20, 20, 20, 0.9);
-        border-top: 1px solid #333;
+        background: var(--bg);
+        border-radius: 50px 50px 0 0;
+        box-shadow: inset 0 0.2rem 0.6rem rgba(255, 255, 255, 0.3),
+          inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+          0 -1rem 2rem rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        left: -15%;
+        right: -15%;
+        top: 25%;
+        bottom: -100%;
+        border-radius: 50%;
+        background-color: var(--pearl-accent);
+      }
+
+      footer::after {
+        content: "";
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        bottom: 12%;
+        top: 40%;
+        border-radius: 0 0 18px 18px;
+        box-shadow: inset 0 -8px 6px -8px var(--pearl-glow);
+        background: linear-gradient(
+          0deg,
+          var(--pearl-light) 0%,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      footer p {
+        position: relative;
+        z-index: 5;
       }
 
       .social-links {
@@ -273,27 +497,45 @@
         justify-content: center;
         gap: 1.5rem;
         margin: 1rem 0;
+        position: relative;
+        z-index: 5;
       }
 
       .social-links a {
-        color: #ccc;
+        color: rgba(255, 255, 255, 0.7);
         font-size: 1.5rem;
-        transition: color 0.3s, transform 0.3s;
+        transition: all 0.3s ease;
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+        text-decoration: none;
       }
 
       .social-links a:hover {
-        color: var(--primary);
-        transform: translateY(-3px);
+        color: white;
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2),
+          0 8px 16px rgba(0, 0, 0, 0.4);
       }
 
       @media (max-width: 768px) {
         header {
           padding: 1rem;
           flex-direction: column;
+          border-radius: 0 0 30px 30px;
         }
 
         nav {
           margin-top: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
         }
 
         section {
@@ -302,6 +544,10 @@
 
         .btn-group {
           flex-direction: column;
+        }
+
+        .skills ul {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -315,6 +561,7 @@
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#resume">Resume</a>
+        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -323,13 +570,18 @@
       <h2 class="section-title">About Me</h2>
       <div class="card">
         <p>
-          I’m <strong>Asser Fouad</strong>, a
-          <strong>19‑year‑old</strong> second‑year Software Industry & Multimedia
-          student at Alexandria National University. I specialize in Full‑Stack
-          Development with expertise in the MERN stack (MongoDB, Express, React, Node.js).
-          Proficient in HTML, CSS, JavaScript, React.js, Tailwind CSS and have foundational skills in
-          C++, Python, Java & PHP. I hold certificates in SDLC and UI/UX design.
-          I’ve recently completed a Tailwind CSS course.
+          I'm <strong>Asser Fouad</strong>, a Aspiring Software Engineering
+          student (second year) with a solid foundation in the Software
+          Development Life Cycle (SDLC), software testing principles (ISTQB),
+          and proficiency in programming languages including Python, C++, Java,
+          and PHP. Strong problem-solving and algorithmic thinking skills
+          support my ability to write clean, efficient code. Passionate
+          full-stack developer with hands-on experience in the MERN stack
+          (MongoDB, Express, React, Node.js), building responsive, user-friendly
+          applications using HTML, CSS, JavaScript, React.js, and Tailwind CSS.
+          Completed certifications in UI/UX design, enabling me to create
+          polished, accessible web experiences. Dedicated to continuous learning
+          and eager to contribute to real-world development projects.
         </p>
         <p>
           <strong><i class="fas fa-seedling"></i> Currently Learning:</strong>
@@ -339,7 +591,7 @@
         <p>
           <strong><i class="fas fa-rocket"></i> Future Goals:</strong>
         </p>
-        <ul>
+        <ul style="padding-left: 1.5rem; margin-top: 0.5rem">
           <li>
             Create polished, accessible web experiences as a Front‑End expert
           </li>
@@ -347,7 +599,7 @@
             Contribute to open‑source projects and collaborate on real‑world
             apps
           </li>
-          <li>Build scalable full‑stack applications with modern technologies</li>
+          <li>Extend my skill set into full‑stack development with Node.js</li>
           <li>
             Continuously evolve my UI/UX design toolkit for engaging interfaces
           </li>
@@ -359,15 +611,18 @@
       <h2 class="section-title">Skills</h2>
       <div class="card">
         <ul>
-          <li><strong>Front-End:</strong> HTML5, CSS3, JavaScript (ES6+), React.js</li>
+          <li>
+            <strong>Front-End:</strong> HTML5, CSS3, JavaScript (ES6+), React.js
+          </li>
+          <li><strong>Back-End:</strong> Node.js, Express.js</li>
           <li><strong>Programming:</strong> C++, Python, Java, PHP</li>
-          <li><strong>Frameworks:</strong> React.js, Tailwind CSS</li>
-          <li><strong>Tools:</strong> Git, VS Code, Chrome DevTools, Cursor</li>
+          <li><strong>Tools:</strong> Git, Chrome DevTools, Cursor</li>
           <li><strong>Design:</strong> Responsive Design, UI/UX Principles</li>
           <li>
             <strong>Soft Skills:</strong> Problem-solving, Teamwork,
             Communication
           </li>
+          <li><strong>Frameworks:</strong> React.js, Express.js, Tailwind CSS</li>
         </ul>
       </div>
     </section>
@@ -378,21 +633,33 @@
       <div class="card project-card">
         <h3>Employee Management System</h3>
         <p>
-          A full-stack MERN application for managing employees, departments, attendance,
-          leaves, and salaries. Features role-based authentication, real-time data management,
-          image uploads, and a responsive UI with smooth transitions. Built with React.js,
-          Tailwind CSS, Node.js, Express, and MongoDB.
+          A full-stack MERN application for managing employees, departments,
+          attendance, leaves, and salaries. Features role-based authentication,
+          real-time data management, image uploads, and a responsive UI with
+          smooth transitions. Built with React.js, Tailwind CSS, Node.js,
+          Express, and MongoDB.
         </p>
         <div class="btn-group">
           <a
             href="https://github.com/asserfouad20/employee-management-system"
             target="_blank"
             class="btn"
-            ><i class="fab fa-github"></i> View Code</a
           >
-          <a href="https://employee-management-system-tau-rosy.vercel.app/" target="_blank" class="btn"
-            ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            <div class="btn-wrap">
+              <i class="fab fa-github"></i>
+              <span>View Code</span>
+            </div>
+          </a>
+          <a
+            href="https://employee-management-system-tau-rosy.vercel.app/"
+            target="_blank"
+            class="btn"
           >
+            <div class="btn-wrap">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Live Demo</span>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -407,27 +674,84 @@
             href="https://github.com/asserfouad20/AF-MAIN/blob/main/PERSONAL-PORTFOLIO.html"
             target="_blank"
             class="btn"
-            ><i class="fab fa-github"></i> View Code</a
           >
-          <a href="#" target="_blank" class="btn"
-            ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            <div class="btn-wrap">
+              <i class="fab fa-github"></i>
+              <span>View Code</span>
+            </div>
+          </a>
+          <a href="#" target="_blank" class="btn">
+            <div class="btn-wrap">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Live Demo</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <h2 class="section-title">Certificates</h2>
+
+      <div class="card project-card">
+        <h3>UI/UX Design Certificate</h3>
+        <p>
+          Completed comprehensive UI/UX design course from Sprints, covering
+          user research, wireframing, prototyping, and design principles.
+        </p>
+        <div class="btn-group">
+          <a
+            href="https://drive.google.com/file/d/1UKR-JLbXeRXiBnRwy8RBWjWlNh7lI764/view?usp=drivesdk"
+            target="_blank"
+            class="btn"
           >
+            <div class="btn-wrap">
+              <i class="fas fa-certificate"></i>
+              <span>View Certificate</span>
+            </div>
+          </a>
         </div>
       </div>
 
       <div class="card project-card">
-        <h3>IOS-Calculator</h3>
-        <p>A IOS design like calculator</p>
+        <h3>SDLC Certificate</h3>
+        <p>
+          Completed Software Development Life Cycle (SDLC) course from Fuzetek,
+          covering software development methodologies, project management, and
+          best practices.
+        </p>
         <div class="btn-group">
           <a
-            href="https://github.com/asserfouad20/AF-MAIN/blob/main/CALCULATOR.html"
+            href="https://drive.google.com/file/d/1fTqAq21ytj3PF5PYB3pM6iIzeaQ3GSXX/view?usp=drivesdk"
             target="_blank"
             class="btn"
-            ><i class="fab fa-github"></i> View Code</a
           >
-          <a href="#" target="_blank" class="btn"
-            ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            <div class="btn-wrap">
+              <i class="fas fa-certificate"></i>
+              <span>View Certificate</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="card project-card">
+        <h3>Backend Development with Node.js & Express Certificate</h3>
+        <p>
+          Completed Backend Development course covering Node.js fundamentals,
+          Express.js framework, RESTful API design, middleware, routing, and
+          server-side development best practices.
+        </p>
+        <div class="btn-group">
+          <a
+            href="https://drive.google.com/file/d/1IHRggXmS1Jazg7zSDm_EzyBjrkIPvK7M/view?usp=drive_link"
+            target="_blank"
+            class="btn"
           >
+            <div class="btn-wrap">
+              <i class="fas fa-certificate"></i>
+              <span>View Certificate</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -441,9 +765,12 @@
         </p>
         <button
           class="btn"
-          onclick="window.open('https://drive.google.com/file/d/1sZoRspy5OOUbaj8ktqCCv-hWsTCikipR/view?usp=sharing')"
+          onclick="window.open('https://drive.google.com/file/d/1K6qRdj5JeURp6YffMpMbVlO8VJ_jubiq/view?usp=drive_link')"
         >
-          <i class="fas fa-download"></i> Download Resume
+          <div class="btn-wrap">
+            <i class="fas fa-download"></i>
+            <span>Download Resume</span>
+          </div>
         </button>
       </div>
     </section>
@@ -472,22 +799,25 @@
     </section>
 
     <footer>
-      <p>&copy; <span id="year"></span> AF Portfolio. All rights reserved.</p>
+      <p>
+        &copy; <span id="year"></span> AF Portfolio - Pearl Edition. All rights
+        reserved.
+      </p>
     </footer>
     <script>
+      // Set current year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        // Selects all anchor tags whose href attribute starts with '#' and iterates through them.
         anchor.addEventListener("click", function (e) {
-          // Adds a click event listener to each selected anchor tag.
-          e.preventDefault(); // Prevents the default behavior of the anchor tag (jumping to the target).
-          const targetId = this.getAttribute("href"); // Gets the value of the href attribute (the target ID) of the clicked link.
-          const targetElement = document.querySelector(targetId); // Selects the HTML element in the document that has the ID matching the targetId.
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
 
           targetElement.scrollIntoView({
-            // Scrolls the target element into the visible area of the browser window.
-            behavior: "smooth", // Specifies that the scrolling should be animated and smooth.
-            block: "start", // Specifies that the top of the target element should be aligned with the top of the visible area.
+            behavior: "smooth",
+            block: "start",
           });
         });
       });
