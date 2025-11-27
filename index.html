@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+    <!-- Open Graph Meta Tags for better social media sharing -->
+    <meta property="og:title" content="AF Portfolio | Front-End Developer" />
+    <meta
+      property="og:description"
+      content="AF's Portfolio - Front-End Developer and Multimedia Student"
+    />
+    <meta property="og:image" content="path-to-your-preview-image.jpg" />
+    <meta property="og:url" content="your-portfolio-url.com" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AF Portfolio | Front-End Developer" />
+    <meta
+      name="twitter:description"
+      content="AF's Portfolio - Front-End Developer and Multimedia Student"
+    />
+    <meta name="twitter:image" content="path-to-your-preview-image.jpg" />
+
+    <!-- Theme Color for Browser -->
+    <meta name="theme-color" content="#1a1a1a" />
+
+    <!-- Preload Critical Resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="keywords"
+      content="front-end developer, web development, portfolio, multimedia, UI/UX design"
+    />
+    <meta name="author" content="AF" />
+    <meta name="robots" content="index, follow" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AF's Portfolio - Front-End Developer and Multimedia Student"
+    />
+    <title>AF Portfolio | Front-End Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: gold;
+        --secondary: #1a1a1a;
+        --text: #e0e0e0;
+        --accent: rgba(255, 215, 0, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(135deg, var(--secondary), #0d0d0d);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      header {
+        background: rgba(20, 20, 20, 0.95);
+        padding: 1.2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        /*Aligns the logo and nav items on opposite ends*/
+        align-items: center;
+        position: sticky;
+        /*Makes the header stick to the top of the viewport as the user scrolls*/
+        top: 0;
+        /*Ensures the sticky element sticks at the very top*/
+        z-index: 100;
+        /*Ensures the header stays on top of other content when it's sticky*/
+        border-bottom: 2px solid var(--primary);
+        backdrop-filter: blur(5px);
+        /*Adds a blur effect to the background of the header*/
+      }
+
+      .logo {
+        font-family: "Orbitron", sans-serif;
+        font-size: 2.5rem;
+        color: var(--primary);
+        text-shadow: 0 0 15px rgba(255, 255, 0, 0.5);
+        letter-spacing: 2px;
+        transition: transform 0.3s;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: #ccc;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        /*Allows the ::after pseudo-element to be positioned relative to this link*/
+        padding: 0.5rem 0;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        /*Positions the underline relative to the nearest positioned ancestor (the 'nav a')*/
+        width: 0;
+        /*Starts the underline with zero width*/
+        height: 2px;
+        background: var(--primary);
+        bottom: 0;
+        /*Positions the underline at the bottom of the link*/
+        left: 0;
+        /*Positions the underline at the left of the link*/
+        transition: width 0.3s;
+        /*Creates a smooth animation for the width change on hover*/
+      }
+
+      nav a:hover::after,
+      nav a:focus::after {
+        width: 100%;
+        /*Expands the underline to full width on hover or focus*/
+      }
+
+      section {
+        padding: 5rem 3rem;
+        max-width: 1000px;
+        margin: auto;
+        scroll-margin-top: 80px;
+        /*Ensures the section is not hidden behind the sticky header when scrolled to*/
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+        /*Allows the ::after pseudo-element to be positioned relative to this title*/
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+        margin: 0.5rem auto 0;
+      }
+
+      .btn {
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        background-position-x: left;
+        background-image: linear-gradient(to right, var(--primary), yellow);
+        display: inline-block;
+        padding: 0.7rem 1.4rem;
+        border: 2px solid var(--primary);
+        background-color: transparent;
+        color: white;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: background-size 1s, background-color 0.3s, color 0.3s,
+          box-shadow 0.3s;
+        text-decoration: none;
+        margin: 0.5rem;
+        cursor: pointer;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        background-size: 100% 100%;
+        color: #111;
+        transform: translateY(-2px);
+        /*Slightly lifts the button on hover*/
+        /* BOX-SHADOW ANATOMY:
+    0    → Horizontal offset (no left/right shadow)
+    5px  → Vertical offset (shadow appears below)
+    15px → Blur radius (how soft/fuzzy the shadow is)
+    rgba(255, 215, 0, 0.3) → Shadow color (gold with 30% opacity)
+
+    This creates a soft yellow glow beneath the button
+   */
+        box-shadow: 0 5px 15px gold opacity(30%);
+      }
+
+      .card {
+        background: rgba(34, 34, 34, 0.8);
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 0 10px var(--accent);
+        margin: 1.5rem 0;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px var(--accent);
+      }
+
+      .skills ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+      }
+
+      .skills li {
+        background: #333;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        border-left: 4px solid var(--primary);
+        transition: transform 0.2s;
+      }
+
+      .skills li:hover {
+        transform: translateX(5px);
+      }
+
+      .project-card {
+        margin-bottom: 2rem;
+      }
+
+      .project-card h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(20, 20, 20, 0.9);
+        border-top: 1px solid #333;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      .social-links a {
+        color: #ccc;
+        font-size: 1.5rem;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem;
+          flex-direction: column;
+        }
+
+        nav {
+          margin-top: 1rem;
+        }
+
+        section {
+          padding: 3rem 1.5rem;
+        }
+
+        .btn-group {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">AF</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="card">
+        <p>
+          I’m <strong>Asser Fouad</strong>, a
+          <strong>19‑year‑old</strong> second‑year Software Industry & Multimedia
+          student at Alexandria National University. I specialize in Full‑Stack
+          Development with expertise in the MERN stack (MongoDB, Express, React, Node.js).
+          Proficient in HTML, CSS, JavaScript, React.js, Tailwind CSS and have foundational skills in
+          C++, Python, Java & PHP. I hold certificates in SDLC and UI/UX design.
+          I’ve recently completed a Tailwind CSS course.
+        </p>
+        <p>
+          <strong><i class="fas fa-seedling"></i> Currently Learning:</strong>
+          Deepening my React framework knowledge, mastering advanced JavaScript
+          patterns, and refining modern UI/UX practices.
+        </p>
+        <p>
+          <strong><i class="fas fa-rocket"></i> Future Goals:</strong>
+        </p>
+        <ul>
+          <li>
+            Create polished, accessible web experiences as a Front‑End expert
+          </li>
+          <li>
+            Contribute to open‑source projects and collaborate on real‑world
+            apps
+          </li>
+          <li>Build scalable full‑stack applications with modern technologies</li>
+          <li>
+            Continuously evolve my UI/UX design toolkit for engaging interfaces
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Front-End:</strong> HTML5, CSS3, JavaScript (ES6+), React.js</li>
+          <li><strong>Programming:</strong> C++, Python, Java, PHP</li>
+          <li><strong>Frameworks:</strong> React.js, Tailwind CSS</li>
+          <li><strong>Tools:</strong> Git, VS Code, Chrome DevTools, Cursor</li>
+          <li><strong>Design:</strong> Responsive Design, UI/UX Principles</li>
+          <li>
+            <strong>Soft Skills:</strong> Problem-solving, Teamwork,
+            Communication
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="card project-card">
+        <h3>Employee Management System</h3>
+        <p>
+          A full-stack MERN application for managing employees, departments, attendance,
+          leaves, and salaries. Features role-based authentication, real-time data management,
+          image uploads, and a responsive UI with smooth transitions. Built with React.js,
+          Tailwind CSS, Node.js, Express, and MongoDB.
+        </p>
+        <div class="btn-group">
+          <a
+            href="https://github.com/asserfouad20/employee-management-system"
+            target="_blank"
+            class="btn"
+            ><i class="fab fa-github"></i> View Code</a
+          >
+          <a href="https://employee-management-system-tau-rosy.vercel.app/" target="_blank" class="btn"
+            ><i class="fas fa-external-link-alt"></i> Live Demo</a
+          >
+        </div>
+      </div>
+
+      <div class="card project-card">
+        <h3>Portfolio Template</h3>
+        <p>
+          A customizable portfolio template for developers, featuring dark/light
+          mode and responsive layout.
+        </p>
+        <div class="btn-group">
+          <a
+            href="https://github.com/asserfouad20/AF-MAIN/blob/main/PERSONAL-PORTFOLIO.html"
+            target="_blank"
+            class="btn"
+            ><i class="fab fa-github"></i> View Code</a
+          >
+          <a href="#" target="_blank" class="btn"
+            ><i class="fas fa-external-link-alt"></i> Live Demo</a
+          >
+        </div>
+      </div>
+
+      <div class="card project-card">
+        <h3>IOS-Calculator</h3>
+        <p>A IOS design like calculator</p>
+        <div class="btn-group">
+          <a
+            href="https://github.com/asserfouad20/AF-MAIN/blob/main/CALCULATOR.html"
+            target="_blank"
+            class="btn"
+            ><i class="fab fa-github"></i> View Code</a
+          >
+          <a href="#" target="_blank" class="btn"
+            ><i class="fas fa-external-link-alt"></i> Live Demo</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <h2 class="section-title">Resume</h2>
+      <div class="card">
+        <p>
+          Download my resume to learn more about my education, skills, and
+          experience.
+        </p>
+        <button
+          class="btn"
+          onclick="window.open('https://drive.google.com/file/d/1sZoRspy5OOUbaj8ktqCCv-hWsTCikipR/view?usp=sharing')"
+        >
+          <i class="fas fa-download"></i> Download Resume
+        </button>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p>Let's connect! I'm open to collaboration and new opportunities.</p>
+        <div class="social-links">
+          <a href="https://github.com/asserfouad20" aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/asser-fouad-036672349"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://x.com/asserfouad635" aria-label="X"
+            ><i class="fab fa-x"></i
+          ></a>
+          <a href="https://wa.me/01000998665" aria-label="WhatsApp"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="year"></span> AF Portfolio. All rights reserved.</p>
+    </footer>
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        // Selects all anchor tags whose href attribute starts with '#' and iterates through them.
+        anchor.addEventListener("click", function (e) {
+          // Adds a click event listener to each selected anchor tag.
+          e.preventDefault(); // Prevents the default behavior of the anchor tag (jumping to the target).
+          const targetId = this.getAttribute("href"); // Gets the value of the href attribute (the target ID) of the clicked link.
+          const targetElement = document.querySelector(targetId); // Selects the HTML element in the document that has the ID matching the targetId.
+
+          targetElement.scrollIntoView({
+            // Scrolls the target element into the visible area of the browser window.
+            behavior: "smooth", // Specifies that the scrolling should be animated and smooth.
+            block: "start", // Specifies that the top of the target element should be aligned with the top of the visible area.
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
